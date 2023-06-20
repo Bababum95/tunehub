@@ -1,0 +1,51 @@
+.button {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    font-weight: 700;
+    color: #000000;
+    border: 0;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    opacity: 1;
+    margin: 40px 0 10px;
+
+    &:after {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        border: solid 2px;
+        border-color: #000 transparent transparent transparent;
+        border-radius: 100%;
+        transition: .3s ease;
+        animation: spin 1s infinite;
+        transform-origin: 0 0;
+    }
+    &:hover {
+        cursor: pointer;
+        opacity: 0.85;
+        transform: scale(1);
+    }
+    &.loading {
+        color: transparent;
+
+        &:after {
+            display: block;
+        }
+        &:hover {
+            cursor: wait;
+            opacity: 1;
+        }
+    }
+}
+
+
+@keyframes spin {
+    from { transform: rotate(0) translate(-50%, -50%) }
+    to { transform: rotate(360deg) translate(-50%, -50%) }
+}

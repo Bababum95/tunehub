@@ -1,0 +1,36 @@
+.container {
+    margin: 100px auto;
+    width: 400px;
+    box-sizing: border-box;
+    padding: 38px;
+    background-color: #1A1E1F;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    svg {
+    width: 145px;
+    height: 42px;
+    }
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+.title {
+    font-size: 32px;
+    margin: 0;
+}
+
+@media screen and (max-width: 450px) {
+    .container {
+        width: calc(100% - 40px);
+        margin: 40px 20px;
+    }
+    @media screen {
+        
+    }
+}

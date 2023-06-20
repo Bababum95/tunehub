@@ -1,0 +1,95 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+    flex-direction: column;
+    position: fixed;
+    left: 20px;
+    top: 100px;
+    background-color: #1A1E1F;
+    border-radius: 32px;
+    padding: 25px 10px;
+    z-index: 5;
+
+    .link {
+        opacity: 0.25;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            opacity: 1;
+        }
+        &.active {
+            opacity: 1;
+            transform: scale(120%);
+            path {
+                fill: #FACD66;
+            }
+        }
+    }
+}
+.user {
+    position: relative;
+    &:hover .spoiler {
+        max-width: 200px;
+        padding-left: 30px;
+    }
+}
+.spoiler {
+    overflow: hidden;
+    position: absolute;
+    transition: all .3s ease-in-out;
+    top: 0;
+    left: 20px;
+    padding-left: 0;
+    max-width: 0;
+}
+.container {
+    padding: 20px;
+    background-color: #1A1E1F;
+    border-radius: 10px;
+}
+.profile, .logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    opacity: 1;
+    width: 150px;
+    height: 35px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    &:hover {
+        opacity: 0.8;
+        transform: none;
+    }
+}
+.profile {
+    margin-bottom: 5px;
+    color: #fff;
+    background-color: #505250;
+}
+.logout {
+    background-color: #FACD66;
+}
+@media screen and (max-width: 500px) {
+    .navbar {
+        flex-direction: row;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: -5px;
+        border-radius: 0;
+        justify-content: space-evenly;
+        a {
+            width: 40px;
+            transform: scale(130%);
+            &.active {
+                transform: scale(140%);
+            }
+        }
+    }
+}

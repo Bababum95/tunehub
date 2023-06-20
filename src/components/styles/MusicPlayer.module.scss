@@ -1,0 +1,54 @@
+button {
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+}
+.body {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    backdrop-filter: blur(15px);
+    background: rgba(26, 30, 31, .6);
+    border-top: 1px solid hsla(0, 0%, 100%, .1);
+    z-index: 5;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.main {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    align-self: center;
+}
+
+@media (any-hover: hover) {
+    button:hover {
+        opacity: 1;
+        cursor: pointer;
+        transform: scale(110%);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .body {
+        bottom: 50px;
+    }
+    .main {
+        flex-basis: auto;
+    }
+    .controller {
+        gap: 15px;
+        transform: scale(125%);
+    }
+}

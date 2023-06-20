@@ -1,0 +1,58 @@
+.controller {
+    display: flex;
+    gap: 42px;
+    align-items: center;
+}
+.shuffle {
+    width: 18px;
+    height: 18px;
+    background-image: url(../../asets/images/shuffle.svg);
+    &.active {
+        opacity: 1;
+    }
+}
+.prev {
+    width: 18px;
+    height: 18px;
+    background-image: url(../../asets/images/next.svg);
+    transform: rotate(180deg);
+    &:hover {
+        transform: rotate(180deg) scale(110%);
+    }
+}
+.play {
+    width: 28px;
+    height: 28px;
+    background-color: #FACD66;
+    border-radius: 50%;
+    opacity: 1;
+    background-image: url(../../asets/images/play.svg);
+    background-size: 10px;
+    &.active {
+        background-image: url(../../asets/images/pause-svgrepo-com.svg);
+        background-size: 15px;
+    }
+}
+.next {
+    width: 18px;
+    height: 18px;
+    background-image: url(../../asets/images/next.svg);
+}
+.repeat {
+    width: 18px;
+    height: 18px;
+    background-image: url(../../asets/images/repeate-one.svg);
+    &.active {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .controller {
+        gap: 15px;
+        transform: scale(125%);
+    }
+    .repeat, .shuffle, .prev {
+        display: none;
+    }
+}

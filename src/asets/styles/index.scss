@@ -1,0 +1,25 @@
+@import '~normalize.css';
+
+body {
+    background-color: #1D2123;
+}
+
+.body {
+    background-color: #1D2123;
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    & a {
+        text-decoration-line: none;
+    }
+}
+
+.main {
+    flex: 1;
+    overflow: hidden;
+}
+
+@import './white-theme.scss'

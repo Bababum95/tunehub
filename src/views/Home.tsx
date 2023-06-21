@@ -9,7 +9,7 @@ const Home = () => {
     useEffect(() => {
         const fetchCategoriesList = async () => {
             const data = await SpotyfyService.getHomePage(9, 30)
-            setList(data.slice(0, 4))
+            setList(data.filter((item: IHomeData) => item.contents.items.length > 0))
         }
         fetchCategoriesList()
     }, [])

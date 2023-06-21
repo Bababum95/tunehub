@@ -14,7 +14,7 @@ const GroopPlayList: FC<GroopPlayListProps> = ({ playLists }) => {
                 {playLists.contents.items.slice(0, 5).map((item) => (
                     <CardPlayList
                         key={item.id}
-                        image={item.images[0][0].url}
+                        image={item.images? item.images[0][0].url : item.cover[0].url}
                         name={item.name}
                         description={item.description} />
                 ))}

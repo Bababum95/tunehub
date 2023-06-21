@@ -1,7 +1,8 @@
 interface IItem {
     id: string
     description: string
-    images: [{ url: string }[]]
+    images?: [{ url: string }[]]
+    cover: { url: string }[]
     name: string
 }
 export interface IHomeData {

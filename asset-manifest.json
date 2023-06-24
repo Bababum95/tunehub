@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tunehub/static/css/main.cd10b185.css",
-    "main.js": "/tunehub/static/js/main.12dd8ace.js",
+    "main.css": "/tunehub/static/css/main.fb01472d.css",
+    "main.js": "/tunehub/static/js/main.b32d0952.js",
     "static/media/loreen_-_tattoo_sweden.mp3": "/tunehub/static/media/loreen_-_tattoo_sweden.7c626566937c0cffeb3f.mp3",
     "static/media/blanka_-_solo_evrovidenie.mp3": "/tunehub/static/media/blanka_-_solo_evrovidenie.d02e143098e1b43765ec.mp3",
     "static/media/cover.jpg": "/tunehub/static/media/cover.35f134ba255e2d014e4e.jpg",
@@ -14,12 +14,13 @@
     "index.html": "/tunehub/index.html",
     "static/media/next.svg": "/tunehub/static/media/next.8f246edab9d3194aa184.svg",
     "static/media/pause-svgrepo-com.svg": "/tunehub/static/media/pause-svgrepo-com.570fe4515205b6d4c50b.svg",
+    "static/media/play-white.svg": "/tunehub/static/media/play-white.d17704e7026f0bb4b4eb.svg",
     "static/media/play.svg": "/tunehub/static/media/play.1f76834e4004ed6ca1b6.svg",
-    "main.cd10b185.css.map": "/tunehub/static/css/main.cd10b185.css.map",
-    "main.12dd8ace.js.map": "/tunehub/static/js/main.12dd8ace.js.map"
+    "main.fb01472d.css.map": "/tunehub/static/css/main.fb01472d.css.map",
+    "main.b32d0952.js.map": "/tunehub/static/js/main.b32d0952.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd10b185.css",
-    "static/js/main.12dd8ace.js"
+    "static/css/main.fb01472d.css",
+    "static/js/main.b32d0952.js"
   ]
 }

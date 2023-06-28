@@ -1,4 +1,4 @@
-import { SearchIcon } from "./svg"
+import { SearchIcon } from './svg';
 import styles from './styles/Search.module.scss';
 
 const Search = () => {
@@ -8,10 +8,10 @@ const Search = () => {
         <button className={styles.button}>
           <SearchIcon />
         </button>
-        <input type="search" className={styles.input} placeholder='Search' />
+        <input type='search' className={styles.input} placeholder='Search' />
       </label>
     </form>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

@@ -17,7 +17,6 @@
 
     &:hover {
         z-index: 5;
-        cursor: pointer;
         background-color: #292a2d;
 
         & .name,
@@ -39,6 +38,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    color: #fff;
 }
 
 @media screen and (max-width: 1200px) {

@@ -1,0 +1,70 @@
+.chart {
+    display: flex;
+    gap: 20px;
+}
+.mainSong {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 15px;
+    width: fit-content;
+    background-color: #1A1E1F;
+    border-radius: 10px;
+    gap: 10px;
+    &:hover {
+        background-color: #292a2d;
+    }
+}
+.mainImage {
+    width: 300px;
+    border-radius: 9px;
+}
+.name {
+    margin: 0;
+}
+
+.artist {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.44);
+}
+.play {
+    background-image: url(../../../../asets/images/play.svg);
+}
+.play {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: #FACD66;
+    border-radius: 50%;
+    opacity: 1;
+    background-image: url(../../../../asets/images/play.svg);
+    background-size: 16px;
+    &.active {
+        background-image: url(../../../../asets/images/pause-svgrepo-com.svg);
+        background-size: 20px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .chart {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 500px) {
+    .chart {
+        padding: 0 20px;
+    }
+    .title {
+        margin: 90px 25px 0;
+    }
+    .mainSong {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .mainImage {
+        width: 100%;
+    }
+}

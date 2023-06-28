@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react'
-import { SpotyfyService } from '../core/services/spotyfy.service';
+import { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 
 const PlayList = () => {
   // const [categoriesList, setCategoriesList] = useState();
@@ -10,10 +10,12 @@ const PlayList = () => {
   //   }
   //   fetchCategoriesList()
   // }, [])
-  
-  return (
-    <div>PlayList</div>
-  )
-}
 
-export default PlayList
+  return (
+    <>
+      <Outlet />
+    </>
+  );
+};
+
+export default PlayList;

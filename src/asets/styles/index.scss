@@ -6,6 +6,7 @@ body {
 
 .body {
     background-color: #1D2123;
+    padding: 70px 30px 125px 100px;
     color: #fff;
     font-family: 'Manrope', sans-serif;
     display: flex;
@@ -20,6 +21,12 @@ body {
 .main {
     flex: 1;
     overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+    .body {
+        padding: 70px 10px 140px;
+    }
 }
 
 @import './white-theme.scss'

@@ -1,0 +1,54 @@
+.song {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #1A1E1F;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    &:hover {
+        background-color: #292a2d;
+        .play {
+            display: block;
+            opacity: 1;
+        }
+        .count {
+            display: none;
+        }
+    }
+}
+.image {
+    width: 50px;
+    border-radius: 5px;
+}
+.name {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 3px;
+}
+.artist {
+    font-size: 14px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.44);
+}
+.play {
+    background-image: url(../../asets/images/play-white.svg);
+    width: 12px;
+    height: 12px;
+    display: none;
+}
+.count {
+    width: 12px;
+}
+.wrapper {
+    width: calc(100% - 100px);
+}
+.name,
+.artist {
+    min-height: 16px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

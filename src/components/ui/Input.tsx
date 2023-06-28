@@ -11,19 +11,19 @@ interface InputProps {
 }
 
 const Input = ({type, name, required, title, value, handleChange}: InputProps) => {
-    return (
-        <label className={styles.label}>
-            {title}
-            <input
-                className={styles.input}
-                type={type} name={name}
-                placeholder={title}
-                required={required}
-                onChange={handleChange}
-                value={value}
-                 />
-        </label>
-    )
-}
+  return (
+    <label className={styles.label}>
+      {title}
+      <input
+        className={styles.input}
+        type={type} name={name}
+        placeholder={title}
+        required={required}
+        onChange={handleChange}
+        value={value}
+      />
+    </label>
+  );
+};
 
-export default Input
+export default Input;

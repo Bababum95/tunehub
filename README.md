@@ -12,6 +12,7 @@ TuneHub is built using the following technologies:
 * TypeScript
 * SCSS
 * Firebase
+* Spotify API
 
 ## Usage
 

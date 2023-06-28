@@ -14,18 +14,18 @@ const MusicPlayer = () => {
   const [duration, setDuration] = useState<number>(0);
   const [trackIndex, setTrackIndex] = useState<number>(0);
   const [currentTrack, setCurrentTrack] = useState<ISong>(tracks[trackIndex]);
-  const [repeatSong, setRepeatSong] = useState<boolean>(false)
+  const [repeatSong, setRepeatSong] = useState<boolean>(false);
 
 
   const handleNext = () => {
     if (trackIndex >= tracks.length - 1) {
-        setTrackIndex(0);
-        setCurrentTrack(tracks[0]);
+      setTrackIndex(0);
+      setCurrentTrack(tracks[0]);
     } else {
-        setTrackIndex((prev) => prev + 1);
-        setCurrentTrack(tracks[trackIndex + 1]);
+      setTrackIndex((prev) => prev + 1);
+      setCurrentTrack(tracks[trackIndex + 1]);
     }
-}
+  };
 
   return (
     <div className={styles.body}>
@@ -45,9 +45,9 @@ const MusicPlayer = () => {
           setRepeatSong }} />
         <ProgressBar {...{ progressBarRef, audioRef, timeProgress, duration }} />
       </div>
-          <VolumeBar  {...{ audioRef }} />
+      <VolumeBar {...{ audioRef }} />
     </div>
-  )
-}
+  );
+};
 
-export default MusicPlayer
+export default MusicPlayer;

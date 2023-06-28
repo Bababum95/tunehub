@@ -13,9 +13,9 @@ const SubmitButton = ({ title, disabled, loading }: SubmitButtonProps) => {
     <button
       className={classNames(styles.button, { [styles.loading]: loading, [styles.disabled]: disabled })}
       disabled={disabled || loading}>
-        {title}
+      {title}
     </button>
-  )
-}
+  );
+};
 
-export default SubmitButton
+export default SubmitButton;

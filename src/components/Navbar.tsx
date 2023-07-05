@@ -11,7 +11,7 @@ const Navbar = () => {
   const handleLogout = () => {
     signOut(auth).then(() => {
       navigate('/login', {replace: true});
-      console.log('buy');
+    // eslint-disable-next-line no-console
     }).catch(console.error);
   };
 

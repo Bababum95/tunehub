@@ -1,17 +1,16 @@
 import { useState, RefObject, useEffect, useRef, useCallback } from 'react';
 import classNames from 'classnames';
 import styles from './styles/Controls.module.scss';
-import { ISong } from '../core/interfeces/song.interfece';
+import { ITrack } from 'core/interfeces/spotyfy.interfece';
 
 interface ControlsProps {
     audioRef: RefObject<HTMLAudioElement>;
     progressBarRef: RefObject<HTMLInputElement>;
     duration: number;
     setTimeProgress: React.Dispatch<React.SetStateAction<number>>;
-    tracks: ISong[];
+    tracks: {track: ITrack}[];
     trackIndex: number;
-    setTrackIndex: React.Dispatch<React.SetStateAction<number>>;
-    setCurrentTrack: React.Dispatch<React.SetStateAction<ISong>>;
+    setCurrentTrack: React.Dispatch<React.SetStateAction<{track: ITrack}>>;
     handleNext: () => void;
     repeatSong: boolean;
     setRepeatSong: React.Dispatch<React.SetStateAction<boolean>>
@@ -24,7 +23,6 @@ const Controls = ({
   setTimeProgress,
   tracks,
   trackIndex,
-  setTrackIndex,
   setCurrentTrack,
   handleNext,
   repeatSong,
@@ -59,10 +57,10 @@ const Controls = ({
   const handlePrevious = () => {
     if (trackIndex === 0) {
       const lastTrackIndex = tracks.length - 1;
-      setTrackIndex(lastTrackIndex);
+      // setTrackIndex(lastTrackIndex);
       setCurrentTrack(tracks[lastTrackIndex]);
     } else {
-      setTrackIndex((prev) => prev - 1);
+      // setTrackIndex((prev) => prev - 1);
       setCurrentTrack(tracks[trackIndex - 1]);
     }
   };

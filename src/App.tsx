@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useAppSelector } from 'core/hooks/redux-hook';
 import Header from './components/Header';
 import MusicPlayer from './components/MusicPlayer';
 import Navbar from './components/Navbar';
 
 const App = () => {
+  const playlist = useAppSelector(state => state.playlist);
   const auth = getAuth();
   const navigate = useNavigate();
   useEffect(() => {
@@ -22,7 +24,9 @@ const App = () => {
       <Header />
       <Navbar />
       <Outlet />
-      <MusicPlayer />
+      {playlist.tracks && (
+        <MusicPlayer tracks={playlist.tracks.items} />
+      )}
     </div>
   );
 };

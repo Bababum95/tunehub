@@ -1,16 +1,8 @@
 import { useEffect } from 'react';
 import GroopPlayList from '../../components/GroopPlayList';
-import { getCategories } from '../../core/services/spotify.service';
 
 const Home = () => {
-  useEffect(() => {
-    const fetchCategoriesList = async () => {
-      const test = await getCategories();
-      // eslint-disable-next-line no-console
-      console.log(test);
-    };
-    fetchCategoriesList();
-  }, []);
+  
   return (
     <>
       <GroopPlayList title='Top Hits' id='toplists' />

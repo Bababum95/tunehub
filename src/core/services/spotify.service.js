@@ -1,53 +1,25 @@
-import { Buffer } from 'buffer';
-const BASE_URL = 'https://api.spotify.com/v1';
-
-export const getAccessToken = async () => {
-  const refresh_token = process.env.REACT_APP_SPOTIFY_REFRESH_TOKEN;
-  const response = await fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${Buffer.from(
-        `${process.env.REACT_APP_SPOTIFY_CLIENT_ID}:${process.env.REACT_APP_SPOTIFY_CLIENT_SECRET}`,
-      ).toString('base64')}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token,
-    }),
-  });
-
-  return response.json();
+import axios from 'axios';
+const BASE_URL = 'https://spotify-scraper.p.rapidapi.com/v1';
+const headers = {
+  'X-RapidAPI-Key': 'e3a24b9bf5msh6f8a262a1ce86c2p1ed27cjsn8286f14a5f0b',
+  'X-RapidAPI-Host': 'spotify-scraper.p.rapidapi.com',
 };
 
-export const getCategories = async () => {
-  const { access_token } = await getAccessToken();
-  const response = await fetch(`${BASE_URL}/browse/categories`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  });
-  return response.json();
-};
-export const getPlaylistsCategoriey = async (categorieyId, limit) => {
-  const { access_token } = await getAccessToken();
-  const response = await fetch(`${BASE_URL}/browse/categories/${categorieyId}/playlists?limit=${limit}`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  });
-  return response.json();
-};
-
-export const getPlaylist = async (id) => {
-  const { access_token } = await getAccessToken();
-  const response = await fetch(`${BASE_URL}/playlists/${id}`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  });
-  return response.json();
-};
+export const UniteService = {
+  async getHomePage() {
+    try {
+      const response = await axios.request({
+        method: 'GET',
+        url: `${BASE_URL}/home`,
+        headers,
+      });
+      if(response.ok) {
+        return response.data;
+      } else {
+        console.log(response);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  },
+}

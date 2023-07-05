@@ -14,6 +14,7 @@
 }
 .image {
     width: 300px;
+    height: 300px;
     border-radius: 10px;
 }
 .info {
@@ -26,6 +27,7 @@
     opacity: 0.7;
 }
 .name {
+    margin-top: 0;
     font-size: 70px;
     font-weight: 900;
 }
@@ -47,6 +49,7 @@
     }
     .image {
         width: 100%;
+        height: auto;
     }
     .name {
         font-size: 40px;

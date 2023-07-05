@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { IPlaylistst } from '../core/interfeces/spotyfy.interfece';
+import { IPlaylist } from '../core/interfeces/spotyfy.interfece';
 import CardPlayList from './CardPlayList';
 import styles from './styles/GroopPlayList.module.scss';
 import { getPlaylistsCategoriey } from '../core/services/spotify.service';
@@ -9,7 +9,7 @@ interface GroopPlayListProps {
     title: string
 }
 const GroopPlayList: FC<GroopPlayListProps> = ({ id, title }) => {
-  const [playLists, setPlayLists] = useState<IPlaylistst[]>();
+  const [playLists, setPlayLists] = useState<IPlaylist[]>();
   useEffect(() => {
     const fetchPlayList = async () => {
       const toplist = await getPlaylistsCategoriey(id, 5);

@@ -7,6 +7,7 @@ import Register from './views/auth/Register';
 import Login from './views/auth/Login';
 import Home from './views/home/Home';
 import SelectPlayList from './views/playlist/SelectPlayList';
+import CurrentPlayList from 'views/playlist/CurrentPlayList';
 
 const router = createHashRouter([
   {
@@ -29,6 +30,10 @@ const router = createHashRouter([
         path: 'playlist',
         element: <PlayList />,
         children: [
+          {
+            path: '/playlist',
+            element: <CurrentPlayList />,
+          },
           {
             path: 'select/:id',
             element: <SelectPlayList />,

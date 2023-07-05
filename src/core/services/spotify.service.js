@@ -51,3 +51,43 @@ export const getPlaylist = async (id) => {
   });
   return response.json();
 };
+export const getPlaylistTracks = async (id) => {
+  const { access_token } = await getAccessToken();
+  const response = await fetch(`${BASE_URL}/playlists/${id}/tracks`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+  return response.json();
+};
+export const getTrack = async (id) => {
+  const { access_token } = await getAccessToken();
+  const response = await fetch(`${BASE_URL}/tracks/${id}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+  return response.json();
+};
+// export const getPlayback = async () => {
+//   const { access_token } = await getAccessToken();
+//   const response = await fetch(`${BASE_URL}/me/player/devices`, {
+//     method: 'GET',
+//     headers: {
+//       Authorization: `Bearer ${access_token}`,
+//     },
+//   });
+//   return response.json();
+// };
+// export const putPlay = async (device_id) => {
+//   const { access_token } = await getAccessToken();
+//   const response = await fetch(`${BASE_URL}/me/player/play?state=true&device_id=${device_id}`, {
+//     method: 'PUT',
+//     headers: {
+//       Authorization: `Bearer ${access_token}`,
+//     },
+//   });
+//   return response.json();
+// };

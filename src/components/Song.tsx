@@ -1,10 +1,10 @@
 import { useState, RefObject } from 'react';
+import { ITrack } from 'core/interfeces/spotyfy.interfece';
 import classNames from 'classnames';
 import styles from './styles/Song.module.scss';
-import { ISong } from '../core/interfeces/song.interfece';
 
 interface SongProps {
-    currentTrack: ISong
+    currentTrack: {track: ITrack}
     audioRef: RefObject<HTMLAudioElement>
     setDuration: React.Dispatch<React.SetStateAction<number>>
     progressBarRef: RefObject<HTMLInputElement>
@@ -28,15 +28,17 @@ const Song = ({ currentTrack, audioRef, setDuration, progressBarRef, handleNext,
     <div className={styles.song}>
       <audio
         className={styles.audio}
-        src={currentTrack.src}
+        // src={currentTrack.src}
         ref={audioRef}
         onLoadedMetadata={onLoadedMetadata}
         onEnded={onEnded}
         controls />
-      <img className={styles.cover} src={currentTrack.thumbnail} alt={`${currentTrack.title} audio avatar`} />
+      <img
+        className={styles.cover} src={currentTrack.track.album.images[2].url}
+        alt={`${currentTrack.track.name} audio avatar`} />
       <div>
-        <h3 className={styles.title}>{currentTrack.title}</h3>
-        <p className={styles.musician}>{currentTrack.author}</p>
+        <h3 className={styles.title}>{currentTrack.track.name}</h3>
+        <p className={styles.musician}>{currentTrack.track.artists[0].name}</p>
       </div>
       <button
         className={classNames(styles.like, { [styles.active]: like })}

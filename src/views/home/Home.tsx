@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import GroopPlayList from '../../components/GroopPlayList';
-import { getCategories } from '../../core/services/spotify.service';
+import { getTrack } from '../../core/services/spotify.service';
 
 const Home = () => {
   useEffect(() => {
     const fetchCategoriesList = async () => {
-      const test = await getCategories();
+      const test = await getTrack('5BSII2hWfTjJPXts8xcJOl');
+      // const test = await getPlayback();
+      // const test = await putPlay("b92737f948543e6731ecda198894dd9cfd78080a");
       // eslint-disable-next-line no-console
       console.log(test);
     };

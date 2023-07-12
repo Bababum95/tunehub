@@ -3,27 +3,28 @@ import { Link } from 'react-router-dom';
 import styles from './styles/CardPlayList.module.scss';
 import placeholder from '../asets/images/cover.jpg';
 
-interface CardPlayListProps {
+interface CardStationProps {
     image: string
     name: string
-    id: number
+    description: string
+    id: string
 }
 
-const CardPlayList: FC<CardPlayListProps> = ({ image, name, id }) => {
+const CardStation: FC<CardStationProps> = ({ image, name, id, description }) => {
   return (
     <div className={styles.card}>
-      <Link to={`/playlist/select/${id}`}>
+      <Link to={`/playlist/station/${id}`}>
         <div className={styles.wrapper}>
           <img
             className={styles.image}
             src={image? image : placeholder}
             alt={name} />
           <h3 className={styles.name}>{name}</h3>
-          {/* <p className={styles.description}>{description}</p> */}
+          <p className={styles.description}>{description}</p>
         </div>
       </Link>
     </div>
   );
 };
 
-export default CardPlayList;
+export default CardStation;

@@ -1,19 +1,35 @@
-import { useState, RefObject } from 'react';
-import { ITrack } from 'core/interfeces/spotyfy.interfece';
+import { useState, RefObject, useEffect, FC } from 'react';
 import classNames from 'classnames';
+import { useAppDispatch, useAppSelector } from 'core/hooks/redux-hook';
+import { addAudio, nextTrack } from 'core/store/slices/playlistSlice';
+import { SoundCloudService } from 'core/services/soundcloud.service';
 import styles from './styles/Song.module.scss';
 
 interface SongProps {
-    currentTrack: {track: ITrack}
     audioRef: RefObject<HTMLAudioElement>
     setDuration: React.Dispatch<React.SetStateAction<number>>
     progressBarRef: RefObject<HTMLInputElement>
-    handleNext: () => void;
     repeatSong: boolean
 }
 
-const Song = ({ currentTrack, audioRef, setDuration, progressBarRef, handleNext, repeatSong }: SongProps) => {
+const Song: FC<SongProps> = ({ audioRef, setDuration, progressBarRef, repeatSong }) => {
+  const dispatch = useAppDispatch();
+  const currentTrack = useAppSelector(state => state.playlist.tracks[state.playlist.currentTrackIndex]);
   const [like, setLike] = useState<boolean>(false);
+  
+  useEffect(() => {
+    const fetchTrack = async () => {
+      const data = await SoundCloudService.getTrack(String(currentTrack.id));
+      dispatch(addAudio({audio: data.audio[0].url}));
+    };
+    if(!currentTrack.audio){
+      fetchTrack();
+    }
+  }, [currentTrack, dispatch]);
+
+  const handleNext = () => {
+    dispatch(nextTrack());
+  };
 
   const onLoadedMetadata = () => {
     const seconds = audioRef.current?.duration;
@@ -25,20 +41,23 @@ const Song = ({ currentTrack, audioRef, setDuration, progressBarRef, handleNext,
   };
 
   return (
-    <div className={styles.song}>
-      <audio
-        className={styles.audio}
-        // src={currentTrack.src}
-        ref={audioRef}
-        onLoadedMetadata={onLoadedMetadata}
-        onEnded={onEnded}
-        controls />
+    <div className={classNames(styles.song, {[styles.load]: !currentTrack.audio})}>
+      {currentTrack.audio && (
+        <audio
+          className={styles.audio}
+          src={currentTrack.audio}
+          ref={audioRef}
+          onLoadedMetadata={onLoadedMetadata}
+          onEnded={onEnded}
+          controls />
+      )}
       <img
-        className={styles.cover} src={currentTrack.track.album.images[2].url}
-        alt={`${currentTrack.track.name} audio avatar`} />
+        className={styles.cover}
+        src={currentTrack.artworkUrl}
+        alt={`${currentTrack.title} audio avatar`} />
       <div>
-        <h3 className={styles.title}>{currentTrack.track.name}</h3>
-        <p className={styles.musician}>{currentTrack.track.artists[0].name}</p>
+        <h3 className={styles.title}>{currentTrack.title}</h3>
+        <p className={styles.musician}>{currentTrack.publisher.artist}</p>
       </div>
       <button
         className={classNames(styles.like, { [styles.active]: like })}

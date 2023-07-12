@@ -25,7 +25,7 @@ const App = () => {
       <Navbar />
       <Outlet />
       {playlist.tracks && (
-        <MusicPlayer tracks={playlist.tracks.items} />
+        <MusicPlayer />
       )}
     </div>
   );

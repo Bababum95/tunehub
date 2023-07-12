@@ -7,14 +7,15 @@ const CurrentPlayList = () => {
 
   return (
     <>
-      {playlist.id && (
+      {/* {playlist.id && (
         <PlayListPreview
           name={playlist.name}
-          image={playlist.images[0].url}
+          image={playlist.images[0][0].url}
           description={playlist.description} />
-      )} {playlist.tracks && (
+      )} */}
+      {/* {playlist && (
         <TracksList playList={playlist} />
-      )}
+      )} */}
     </>
   );
 };

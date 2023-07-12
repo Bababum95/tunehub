@@ -1,15 +1,28 @@
-import { useEffect } from 'react';
-import GroopPlayList from '../../components/GroopPlayList';
+import { useEffect, useState } from 'react';
+import { SoundCloudService } from 'core/services/soundcloud.service';
+import { ISelection } from 'core/interfeces/soundcloud.interfece';
+import Sections from 'components/Sections';
 
 const Home = () => {
+  const [homePageData, setHomePageData] = useState<ISelection[]>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await SoundCloudService.getHomePage();
+      setHomePageData(data.selections.slice(0, 10));
+    };
+    fetchData();
+  }, []);
   
   return (
-    <>
-      <GroopPlayList title='Top Hits' id='toplists' />
-      <GroopPlayList title='Fresh Finds' id='0JQ5DAqbMKFImHYGo3eTSg' />
-      <GroopPlayList title='Набирает популярность' id='0JQ5DAqbMKFQIL0AXnG5AK' />
-      <GroopPlayList title='API Heritage Month' id='0JQ5DAqbMKFFgo8jQnAk7E' />
-    </>
+    <div>
+      {homePageData && homePageData.map((item) => (
+        <Sections
+          key={item.id}
+          title={item.title}
+          data={item.items.slice(0, 5)} />
+      ))}
+    </div>
   );
 };
 

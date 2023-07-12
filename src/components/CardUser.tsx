@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import styles from './styles/CardPlayList.module.scss';
 import placeholder from '../asets/images/cover.jpg';
 
-interface CardPlayListProps {
+interface CardUserProps {
     image: string
     name: string
     id: number
 }
 
-const CardPlayList: FC<CardPlayListProps> = ({ image, name, id }) => {
+const CardUser: FC<CardUserProps> = ({ image, name, id }) => {
   return (
     <div className={styles.card}>
       <Link to={`/playlist/select/${id}`}>
@@ -17,13 +17,15 @@ const CardPlayList: FC<CardPlayListProps> = ({ image, name, id }) => {
           <img
             className={styles.image}
             src={image? image : placeholder}
-            alt={name} />
+            alt={name}
+            style={{
+              borderRadius: '50%',
+            }} />
           <h3 className={styles.name}>{name}</h3>
-          {/* <p className={styles.description}>{description}</p> */}
         </div>
       </Link>
     </div>
   );
 };
 
-export default CardPlayList;
+export default CardUser;

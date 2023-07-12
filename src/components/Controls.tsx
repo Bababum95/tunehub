@@ -1,17 +1,14 @@
 import { useState, RefObject, useEffect, useRef, useCallback } from 'react';
 import classNames from 'classnames';
+import { useAppDispatch, useAppSelector } from 'core/hooks/redux-hook';
+import { nextTrack, previousTrack, setIsPlaying } from 'core/store/slices/playlistSlice';
 import styles from './styles/Controls.module.scss';
-import { ITrack } from 'core/interfeces/spotyfy.interfece';
 
 interface ControlsProps {
     audioRef: RefObject<HTMLAudioElement>;
     progressBarRef: RefObject<HTMLInputElement>;
     duration: number;
     setTimeProgress: React.Dispatch<React.SetStateAction<number>>;
-    tracks: {track: ITrack}[];
-    trackIndex: number;
-    setCurrentTrack: React.Dispatch<React.SetStateAction<{track: ITrack}>>;
-    handleNext: () => void;
     repeatSong: boolean;
     setRepeatSong: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -21,14 +18,12 @@ const Controls = ({
   progressBarRef,
   duration,
   setTimeProgress,
-  tracks,
-  trackIndex,
-  setCurrentTrack,
-  handleNext,
   repeatSong,
   setRepeatSong,
 }: ControlsProps) => {
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const isPlaying = useAppSelector(state => state.playlist.isPlaying);
+  const currentTrack = useAppSelector(state => state.playlist.tracks[state.playlist.currentTrackIndex]);
   const [shuffle, setShuffle] = useState<boolean>(false);
   const playAnimationRef = useRef<number>(0);
 
@@ -46,24 +41,14 @@ const Controls = ({
   }, [audioRef, duration, progressBarRef, setTimeProgress]);
 
   useEffect(() => {
+    if(!currentTrack.audio) return;
     if (isPlaying) {
       audioRef.current?.play();
     } else {
       audioRef.current?.pause();
     }
     playAnimationRef.current = requestAnimationFrame(repeat);
-  }, [isPlaying, audioRef, repeat]);
-
-  const handlePrevious = () => {
-    if (trackIndex === 0) {
-      const lastTrackIndex = tracks.length - 1;
-      // setTrackIndex(lastTrackIndex);
-      setCurrentTrack(tracks[lastTrackIndex]);
-    } else {
-      // setTrackIndex((prev) => prev - 1);
-      setCurrentTrack(tracks[trackIndex - 1]);
-    }
-  };
+  }, [isPlaying, audioRef, repeat, currentTrack.audio]);
 
   return (
     <div className={styles.controller}>
@@ -72,13 +57,13 @@ const Controls = ({
         onClick={() => setShuffle(!shuffle)} />
       <button
         className={styles.prev}
-        onClick={handlePrevious} />
+        onClick={() => dispatch(previousTrack())} />
       <button
         className={classNames(styles.play, { [styles.active]: isPlaying })}
-        onClick={() => setIsPlaying(!isPlaying)} />
+        onClick={() => dispatch(setIsPlaying(!isPlaying))} />
       <button
         className={styles.next}
-        onClick={handleNext} />
+        onClick={() => dispatch(nextTrack())} />
       <button
         className={classNames(styles.repeat, { [styles.active]: repeatSong })}
         onClick={() => setRepeatSong(!repeatSong)} />

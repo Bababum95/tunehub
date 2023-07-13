@@ -2,7 +2,7 @@ import { createHashRouter } from 'react-router-dom';
 import App from './App';
 import Player from './views/Player';
 import PlayList from './views/playlist/PlayList';
-import Profile from './views/Profile';
+import Profile from './views/profile/Profile';
 import Register from './views/auth/Register';
 import Login from './views/auth/Login';
 import Home from './views/home/Home';

@@ -1,0 +1,157 @@
+.overlay {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    &.open {
+        display: flex;
+    }
+}
+
+.popup {
+    background-color: #1A1E1F;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    &::after, span {
+        width: 25px;
+        height: 4px;
+        background-color: #fff;
+        position: absolute;
+        top: center;
+        left: 0;
+    }
+    &::after {
+        content: '';
+        transform: rotate(45deg);
+    }
+    span {
+        transform: rotate(-45deg);
+    }
+}
+
+.avatar {
+    width: 30%;
+    object-fit: contain;
+}
+
+.title {
+    width: 100%;
+    font-size: 28px;
+    margin: 0;
+}
+
+.subtitle {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    width: 70%;
+
+    img {
+        width: 100%;
+        border: 1px solid #4a4c50;
+        border-radius: 10px;
+        transition: all .2s;
+        &:hover {
+            background-color: #facd66;
+            cursor: pointer;
+        }
+    }
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input {
+    width: 60%;
+    background-color: #454545;
+    border: none;
+    color: #fff;
+    height: 40px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.submit {
+    position: relative;
+    width: 35%;
+    background-color: #facd66;
+    opacity: 1;
+    height: 40px;
+    border-radius: 6px;
+
+    &:after {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        border: solid 2px;
+        border-color: #000 transparent transparent transparent;
+        border-radius: 100%;
+        transition: .3s ease;
+        animation: spin 1s infinite;
+        transform-origin: 0 0;
+    }
+    &.loading {
+        color: transparent;
+
+        &:after {
+            display: block;
+        }
+        &:hover {
+            cursor: wait;
+            transform: none;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .popup {
+        justify-content: center;
+    }
+    .container {
+        width: 100%;
+    }
+    .avatar {
+        width: 40%;
+        margin-bottom: 15px;
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0) translate(-50%, -50%) }
+    to { transform: rotate(360deg) translate(-50%, -50%) }
+}

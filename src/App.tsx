@@ -12,11 +12,7 @@ const App = () => {
   const navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // console.log(user)
-      } else {
-        navigate('/login', { replace: true });
-      }
+      if (!user) navigate('/login', { replace: true });
     });
   }, [auth, navigate]);
   return (

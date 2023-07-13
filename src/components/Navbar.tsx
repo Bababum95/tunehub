@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Home, PlayList, Profile } from './svg';
 import styles from './styles/Navbar.module.scss';
 import Player from './svg/Player';
+import userAva from 'asets/images/profile/users/animoji-1.png'
 
 const Navbar = () => {
   const auth = getAuth();
@@ -36,6 +37,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) => classNames(styles.link, { [styles.active]: isActive })}
           to='profile'>
+          {/* <img src={userAva} alt='' /> */}
           <Profile />
         </NavLink>
         <div className={styles.spoiler}>
@@ -44,7 +46,7 @@ const Navbar = () => {
             <button
               className={styles.logout}
               onClick={handleLogout} >
-                            Logout
+                Logout
             </button>
           </div>
         </div>

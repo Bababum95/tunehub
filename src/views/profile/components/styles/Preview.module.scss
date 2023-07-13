@@ -1,0 +1,89 @@
+.cover {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.content {
+    position: relative;
+    z-index: 2;
+    margin-top: 30px;
+    display: flex;
+    gap: 27px;
+}
+.image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: rgb(25 34 51 / 24%);
+    box-shadow: 0px 0px 10px 5px rgb(28 33 34);
+    backdrop-filter: blur(10px);
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 10px;
+
+}
+.wrapper {
+    position: relative;
+    width: fit-content;
+}
+.description {
+    margin: 0;
+    opacity: 0.7;
+}
+.name {
+    margin-top: 0;
+    font-size: 70px;
+    font-weight: 900;
+}
+.edit {
+    position: absolute;
+    bottom: 0;
+    right: -40px;
+    width: 20px;
+    height: 20px;
+    background-image: url(../../../../asets/images/profile/pen.svg);
+    &:hover {
+        &::after{
+            width: 40px;
+        }
+    }
+    &::after {
+        content: 'Edit';
+        position: absolute;
+        bottom: 0;
+        right: -45px;
+        color: #fff;
+        overflow: hidden;
+        width: 0;
+        transition: all .1s;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 0;
+    }
+    .name {
+        margin: 10px 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        max-width: 350px;
+    }
+    .image {
+        width: 100%;
+        height: auto;
+    }
+    .name {
+        font-size: 40px;
+    }
+}

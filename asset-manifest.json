@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tunehub/static/css/main.1a4debb8.css",
-    "main.js": "/tunehub/static/js/main.09eebbdb.js",
+    "main.js": "/tunehub/static/js/main.673d4903.js",
     "static/media/ondes-sonores-1024x576.jpg": "/tunehub/static/media/ondes-sonores-1024x576.45899e72bbd91e36d092.jpg",
     "static/media/animoji-2.png": "/tunehub/static/media/animoji-2.6d3675f52bb7d99ca28b.png",
     "static/media/animoji-3.png": "/tunehub/static/media/animoji-3.710cf4f14013d75529dc.png",
@@ -27,10 +27,10 @@
     "static/media/play.svg": "/tunehub/static/media/play.1f76834e4004ed6ca1b6.svg",
     "static/media/pen.svg": "/tunehub/static/media/pen.8667ac4a523e8fc42e59.svg",
     "main.1a4debb8.css.map": "/tunehub/static/css/main.1a4debb8.css.map",
-    "main.09eebbdb.js.map": "/tunehub/static/js/main.09eebbdb.js.map"
+    "main.673d4903.js.map": "/tunehub/static/js/main.673d4903.js.map"
   },
   "entrypoints": [
     "static/css/main.1a4debb8.css",
-    "static/js/main.09eebbdb.js"
+    "static/js/main.673d4903.js"
   ]
 }

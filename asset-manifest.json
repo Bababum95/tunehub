@@ -1,18 +1,8 @@
 {
   "files": {
     "main.css": "/tunehub/static/css/main.1a4debb8.css",
-    "main.js": "/tunehub/static/js/main.673d4903.js",
+    "main.js": "/tunehub/static/js/main.5570f00b.js",
     "static/media/ondes-sonores-1024x576.jpg": "/tunehub/static/media/ondes-sonores-1024x576.45899e72bbd91e36d092.jpg",
-    "static/media/animoji-2.png": "/tunehub/static/media/animoji-2.6d3675f52bb7d99ca28b.png",
-    "static/media/animoji-3.png": "/tunehub/static/media/animoji-3.710cf4f14013d75529dc.png",
-    "static/media/animoji-7.png": "/tunehub/static/media/animoji-7.fb197ca1efff1d1235a8.png",
-    "static/media/animoji.png": "/tunehub/static/media/animoji.df6240c1c956c536bf83.png",
-    "static/media/animoji-8.png": "/tunehub/static/media/animoji-8.9ae9f2e4e36f46e236f3.png",
-    "static/media/animoji-5.png": "/tunehub/static/media/animoji-5.3953679f43ec6ad2d8c0.png",
-    "static/media/animoji-1.png": "/tunehub/static/media/animoji-1.661a7160156cf389c445.png",
-    "static/media/animoji-6.png": "/tunehub/static/media/animoji-6.009953f9f698344051f8.png",
-    "static/media/animoji-4.png": "/tunehub/static/media/animoji-4.4ed0b3fd98dd0e07ccd9.png",
-    "static/media/animoji-9.png": "/tunehub/static/media/animoji-9.3c208f3564ea8c262acf.png",
     "static/media/cover.jpg": "/tunehub/static/media/cover.35f134ba255e2d014e4e.jpg",
     "static/media/shuffle.svg": "/tunehub/static/media/shuffle.9ea1c791179ee0416ead.svg",
     "static/media/repeate-one.svg": "/tunehub/static/media/repeate-one.a7c9c4a9bc7f02210c08.svg",
@@ -27,10 +17,10 @@
     "static/media/play.svg": "/tunehub/static/media/play.1f76834e4004ed6ca1b6.svg",
     "static/media/pen.svg": "/tunehub/static/media/pen.8667ac4a523e8fc42e59.svg",
     "main.1a4debb8.css.map": "/tunehub/static/css/main.1a4debb8.css.map",
-    "main.673d4903.js.map": "/tunehub/static/js/main.673d4903.js.map"
+    "main.5570f00b.js.map": "/tunehub/static/js/main.5570f00b.js.map"
   },
   "entrypoints": [
     "static/css/main.1a4debb8.css",
-    "static/js/main.673d4903.js"
+    "static/js/main.5570f00b.js"
   ]
 }
